@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 ===========================================================================
-Empirical Validation of the Power of Two Choices for Web Server
-Load Balancing — Simulation Source Code
+Empirical Validation of the Power of Two Choices — Simulation Source Code
 
 Authors  : Awatif Alshehri, Padmaja S
 Affil.   : Dept. of Computer Science, College of Computer Engineering
@@ -43,9 +42,8 @@ MIT License — free to use, modify, and distribute with attribution.
 Citation
 --------
 Alshehri, A. & Padmaja, S. (2026). Empirical Validation of the Power
-of Two Choices for Web Server Load Balancing. Proceedings of the 5th
-IEEE International Conference on Technology, Engineering, Management
-and Science (TEMSCON-ASPAC 2026).
+of Two Choices. Proceedings of the 5th IEEE International Conference
+on Technology, Engineering, Management and Science (TEMSCON-ASPAC 2026).
 ===========================================================================
 """
 

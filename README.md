@@ -80,7 +80,7 @@ If you use this code, please cite:
 
 ```
 Alshehri, A. & Padmaja, S. (2026). Empirical Validation of the Power
-of Two Choices for Web Server Load Balancing. Proceedings of the 5th
+of Two Choices. Proceedings of the 5th
 IEEE International Conference on Technology, Engineering, Management
 and Science (TEMSCON-ASPAC 2026).
 ```

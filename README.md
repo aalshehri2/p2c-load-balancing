@@ -1,4 +1,4 @@
-# Empirical Validation of the Power of Two Choices for Web Server Load Balancing
+# Empirical Validation of the Power of Two Choices
 
 **Authors:** Awatif Alshehri, Padmaja S  
 **Affiliation:** Dept. of Computer Science, College of Computer Engineering and Sciences, Prince Sattam Bin Abdulaziz University, Al-Kharj 11942, Saudi Arabia  

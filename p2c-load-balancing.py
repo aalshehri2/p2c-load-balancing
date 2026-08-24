@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 ===========================================================================
-Empirical Validation of the Power of Two Choices — Simulation Source Code
+Empirical Validation of the Power of Two Choices for Web Server
+Load Balancing — Simulation Source Code
 
 Authors  : Awatif Alshehri, Padmaja S
 Affil.   : Dept. of Computer Science, College of Computer Engineering
@@ -42,8 +43,9 @@ MIT License — free to use, modify, and distribute with attribution.
 Citation
 --------
 Alshehri, A. & Padmaja, S. (2026). Empirical Validation of the Power
-of Two Choices. Proceedings of the 5th IEEE International Conference
-on Technology, Engineering, Management and Science (TEMSCON-ASPAC 2026).
+of Two Choices for Web Server Load Balancing. Proceedings of the 5th
+IEEE International Conference on Technology, Engineering, Management
+and Science (TEMSCON-ASPAC 2026).
 ===========================================================================
 """
 
@@ -387,6 +389,29 @@ def run_simulation():
     df.to_csv("results/simulation_results.csv", index=False)
     print(f"\n✅ Simulation complete in {time.time() - t_start:.1f}s")
     print(f"   36-row summary → results/simulation_results.csv")
+
+    # ── Supplementary runs: m=20 and m=50 (Uniform only) ─────────────────
+    # Used to verify empirical ordering P2C ≤ RA ≤ RR at larger scales.
+    # Results are not included in the main 36-configuration analysis.
+    print("\n-- Supplementary runs: m=20 and m=50 (Uniform, 200 runs each) --")
+    pcfg_uni = {"burst": False, "heavy": False}
+    req_sets_uni = [
+        generate_requests(LAMBDA, MU, SIM_DURATION,
+                          pcfg_uni["burst"], pcfg_uni["heavy"],
+                          np.random.default_rng(RANDOM_SEED + k))
+        for k in range(NUM_RUNS)
+    ]
+    for m_sup in [20, 50]:
+        for algo_name, algo_fn in ALGOS.items():
+            ml_list = []
+            for k, reqs in enumerate(req_sets_uni):
+                rng_k = np.random.default_rng(RANDOM_SEED + k * 1000)
+                ml, _ = algo_fn(reqs, m_sup, rng_k)
+                ml_list.append(ml)
+            mean_ml = np.mean(ml_list)
+            short = algo_name.split("(")[1].rstrip(")")
+            print(f"   m={m_sup:2d}  {short:3s}  NML={mean_ml:.3f}")
+
     return df
 
 
